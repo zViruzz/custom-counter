@@ -31,14 +31,17 @@ export function App() {
 		}
 	}, [lastDate, resetCounters, saveDate])
 
+	const handleClickTableButton = () => {
+		window.document.body.style.overflow = 'hidden'
+		setShowTable(!showTable)
+	}
+
 	return (
 		<div className='flex flex-col h-full w-full p-4'>
 			<button
 				type='button'
-				className='absolute right-5 bottom-5 p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 cursor-pointer'
-				onClick={() => {
-					setShowTable(!showTable)
-				}}
+				className='fixed right-5 bottom-5 p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 cursor-pointer'
+				onClick={handleClickTableButton}
 			>
 				<TableIcon className='w-6 h-6' />
 			</button>

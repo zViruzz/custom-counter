@@ -12,15 +12,20 @@ export function Table({ showTable, setShowTable }) {
 		})
 	}
 
+	const handleClickClose = () => {
+		window.document.body.style.overflow = 'auto'
+		setShowTable(false)
+	}
+
 	return (
 		<div
-			className={`absolute w-screen h-screen z-20 top-0 left-0 bg-black/30 backdrop-blur-sm p-[3%] ${showTable ? 'block' : 'hidden'}`}
+			className={`fixed w-full h-screen z-20 top-0 left-0 bg-black/30 backdrop-blur-sm p-[3%] ${showTable ? 'block' : 'hidden'}`}
 		>
 			<div className='bg-neutral-900 h-full w-full rounded-lg p-8 relative'>
 				<button
 					type='button'
 					className='absolute right-5 top-5 border-2 rounded-xl p-[2px] text-red-500 opacity-60 cursor-pointer hover:bg-red-500'
-					onClick={() => setShowTable(false)}
+					onClick={handleClickClose}
 				>
 					<CloseIcon className='hover:text-black' />
 				</button>
