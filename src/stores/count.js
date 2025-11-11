@@ -33,7 +33,8 @@ export const useCount = create(
 			addCounter: (counter) =>
 				set((state) => {
 					const newTitle = counter.title.charAt(0).toUpperCase() + counter.title.slice(1)
-					const newCounter = { ...counter, title: newTitle }
+					const date = new Date()
+					const newCounter = { ...counter, title: newTitle, value: 0, createAt: date }
 
 					return {
 						counters: [...state.counters, newCounter],
@@ -53,7 +54,7 @@ export const useCount = create(
 			decrement: (title) =>
 				set((state) => ({
 					counters: state.counters.map((c) =>
-						c.title === title ? { ...c, value: c.value - 1 } : c,
+						c.title === title ? { ...c, value: c.value > 0 ? c.value - 1 : 0 } : c,
 					),
 				})),
 			customIncrement: (title, amount) =>

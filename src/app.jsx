@@ -1,10 +1,13 @@
 import './app.css'
-import { useEffect } from 'preact/hooks'
+import { useEffect, useState } from 'preact/hooks'
 import { useCount } from './stores/count'
 import { Counter } from './components/Counter'
 import { FormNewCounter } from './components/FormNewCounter'
+import TableIcon from './icons/TableIcon'
+import { Table } from './components/Table'
 
 export function App() {
+	const [showTable, setShowTable] = useState(false)
 	const lastDate = useCount((state) => state.lastDate)
 	const counters = useCount((state) => state.counters)
 	const resetCounters = useCount((state) => state.resetCounters)
@@ -30,6 +33,17 @@ export function App() {
 
 	return (
 		<div className='flex flex-col h-full w-full p-4'>
+			<button
+				type='button'
+				className='absolute right-5 bottom-5 p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 cursor-pointer'
+				onClick={() => {
+					setShowTable(!showTable)
+				}}
+			>
+				<TableIcon className='w-6 h-6' />
+			</button>
+			<Table showTable={showTable} setShowTable={setShowTable} />
+
 			<div className='flex justify-center flex-col mb-20 items-center'>
 				<h1 className='text-4xl my-5 font-medium'>CounTeR</h1>
 				<FormNewCounter />
