@@ -50,7 +50,7 @@ export function FormNewCounter() {
 				placeholder='Title'
 				value={valueTitle}
 				onChange={(e) => setValueTitle(e.target.value)}
-				className={`border border-neutral-700 rounded-full h-15 transition-all duration-400 placeholder:text-black ${showInput ? 'w-60 px-5  placeholder:text-gray-400 focus-within:shadow-indigo-500/50 shadow-lg focus-within:border-transparent focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-opacity-50 focus-within:outline-none' : 'w-15'} `}
+				className={`border border-neutral-700 rounded-full h-15 transition-all duration-400 placeholder:text-gray-50/0 ${showInput ? 'w-60 px-5  placeholder:text-gray-400 focus-within:shadow-indigo-500/50 shadow-lg focus-within:border-transparent focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-opacity-50 focus-within:outline-none' : 'w-15'} `}
 			/>
 			<button
 				className='top-0 right-0 h-15 w-15 flex items-center justify-center absolute rounded-full border-neutral-700 border-2 hover:bg-white hover:text-black transition-colors hover:cursor-pointer hover:border-white focus-within:outline-none focus-within:bg-white focus-within:text-black'
