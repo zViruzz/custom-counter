@@ -9,9 +9,16 @@ export const useCount = create(
 			counters: [],
 			colorIndex: 0,
 			colorChange: () =>
-				set((state) => ({
-					colorNext: state.colorIndex + 1,
-				})),
+				set((state) => {
+					if (state.colorIndex >= 4) {
+						return {
+							colorIndex: 0,
+						}
+					}
+					return {
+						colorIndex: state.colorIndex + 1,
+					}
+				}),
 			resetCounters: () =>
 				set((state) => {
 					const newCountersPersistent = state.countersPersistent.map((c) => {
