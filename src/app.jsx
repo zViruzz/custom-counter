@@ -5,6 +5,7 @@ import { Counter } from './components/Counter'
 import { FormNewCounter } from './components/FormNewCounter'
 import TableIcon from './icons/TableIcon'
 import { Table } from './components/Table'
+import FormEdit from './components/FormEdit'
 
 export function App() {
 	const [showTable, setShowTable] = useState(false)
@@ -38,6 +39,7 @@ export function App() {
 
 	return (
 		<div className='flex flex-col h-full w-full p-4'>
+			<FormEdit />
 			<button
 				type='button'
 				className='fixed right-5 bottom-5 p-2 rounded-full bg-neutral-800 hover:bg-neutral-700 cursor-pointer'

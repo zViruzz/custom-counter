@@ -1,5 +1,6 @@
-import CloseIcon from '../icons/CloseIcon'
 import { useCount } from '../stores/count'
+import CloseButton from './CloseButton'
+import MenuSingleCount from './MenuSingleCount'
 
 export function Table({ showTable, setShowTable }) {
 	const countersPersistent = useCount((state) => state.countersPersistent)
@@ -7,7 +8,7 @@ export function Table({ showTable, setShowTable }) {
 	const formatDate = (fecha) => {
 		return new Date(fecha).toLocaleDateString('es-ES', {
 			year: 'numeric',
-			month: 'long',
+			month: 'short',
 			day: 'numeric',
 		})
 	}
@@ -22,13 +23,8 @@ export function Table({ showTable, setShowTable }) {
 			className={`fixed w-full h-screen z-20 top-0 left-0 bg-black/30 backdrop-blur-sm p-[3%] ${showTable ? 'block' : 'hidden'}`}
 		>
 			<div className='bg-neutral-900 h-full w-full rounded-lg p-8 relative'>
-				<button
-					type='button'
-					className='absolute right-5 top-5 border-2 rounded-xl p-[2px] text-red-500 opacity-60 cursor-pointer hover:bg-red-500'
-					onClick={handleClickClose}
-				>
-					<CloseIcon className='hover:text-black' />
-				</button>
+				<CloseButton handleClickClose={handleClickClose} />
+
 				<h2 className='text-left text-2xl mb-6'>Lista de Contador</h2>
 				<div className='border border-neutral-600 rounded-xl p-3'>
 					<table className='w-full mx-2'>
@@ -46,11 +42,18 @@ export function Table({ showTable, setShowTable }) {
 									<td className='text-left w-[50%] py-4 px-2 font-medium'>
 										{item.title}
 									</td>
-									<td className='text-left w-[25%] text-xl font-semibold'>
+									<td className='text-left w-[20%] text-xl font-semibold'>
 										{item.value}
 									</td>
-									<td className='text-left w-[25%] text-neutral-400'>
+									<td className='text-left w-[20%] text-neutral-400'>
 										{formatDate(item.createAt)}
+									</td>
+									<td className='text-left w-[5%] text-neutral-400 px-3 relative'>
+										<MenuSingleCount
+											title={item.title}
+											value={item.value}
+											color={item.color}
+										/>
 									</td>
 								</tr>
 							))}

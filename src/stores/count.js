@@ -19,6 +19,15 @@ export const useCount = create(
 						colorIndex: state.colorIndex + 1,
 					}
 				}),
+			changeCounter: (title, { newTitle, value, color }) =>
+				set((state) => ({
+					countersPersistent: state.countersPersistent.map((c) =>
+						c.title === title ? { ...c, title: newTitle, value, color } : c,
+					),
+					counters: state.counters.map((c) =>
+						c.title === title ? { ...c, title: newTitle, color } : c,
+					),
+				})),
 			resetCounters: () =>
 				set((state) => {
 					const newCountersPersistent = state.countersPersistent.map((c) => {
