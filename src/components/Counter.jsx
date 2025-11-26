@@ -44,9 +44,9 @@ export function Counter({ title, value, color }) {
 			>
 				{title}
 			</h2>
-			<p className='text-[60px] my-6'>{value}</p>
+			<p className='text-[60px] my-6 font-bold'>{value}</p>
 
-			<div className='flex gap-3 text-3xl' style={{ color: color }}>
+			<div className='flex gap-3 text-3xl justify-center' style={{ color: color }}>
 				<button
 					type='button'
 					className='border-2 w-18 h-18 rounded-full flex justify-center items-center transition-colors hover:cursor-pointer hover:text-black hover:bg-[var(--dynamic-color)]'

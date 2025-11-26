@@ -50,7 +50,7 @@ export function App() {
 			<Table showTable={showTable} setShowTable={setShowTable} />
 
 			<div className='flex justify-center flex-col mb-20 items-center'>
-				<h1 className='text-4xl my-5 font-medium'>CounTeR</h1>
+				<h1 className='text-4xl my-5 font-light'>CounTeR</h1>
 				<FormNewCounter />
 			</div>
 			<div className='flex gap-7 items-start flex-wrap w-full justify-center'>
